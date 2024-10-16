@@ -9,7 +9,15 @@ use Kyslik\ColumnSortable\Sortable;
 class Product extends Model
 {
     use HasFactory, Sortable;
-
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'category_id',
+        'image',
+        'recommend_flag',
+        'carriage_flag',
+    ];
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -22,5 +30,13 @@ class Product extends Model
     public function favorited_users()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
+    }
+    public function averageScore()
+    {
+        return $this->reviews()->avg('score') ?: 0; // レビューがない場合は0を返す
+    }
+    public function getAverageScore()
+    {
+        return $this->reviews()->avg('score') ?: 0; // レビューがない場合は0を返す
     }
 }

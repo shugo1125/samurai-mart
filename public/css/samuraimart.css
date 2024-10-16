@@ -162,3 +162,28 @@ label {
   letter-spacing: normal;
   color: #191919;
 }
+
+.samuraimart-favorite-add-cart {
+  border-radius: 2px;
+  color: #ffffff;
+  background-color: #0fbe9f;
+}
+
+.review-score-color {
+  color: #0fbe9f;
+}
+
+.review-score-color:focus {
+  color: #0fbe9f;
+}
+
+.samuraimart-delete-submit-button {
+  border-radius: 2px;
+  color: #ffffff;
+  background-color: #d94b0e;
+}
+
+th,
+td {
+  background-color: #f8fafc !important;
+}

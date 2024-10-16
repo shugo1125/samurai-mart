@@ -115,3 +115,13 @@ label {
   letter-spacing: normal;
   color: #0fbe9f;
 }
+
+.new-products-title {
+  margin-bottom: 0;
+  /* 下のマージンを0に */
+}
+
+.more-link {
+  margin-top: -10px;
+  /* 上のマージンを調整して近づける */
+}
