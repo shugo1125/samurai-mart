@@ -31,6 +31,7 @@ class ReviewController extends Controller
         $review->score = $request->input('score');
         $review->save();
 
-        return back();
+        // 商品詳細ページにリダイレクト
+        return redirect()->route('products.show', $review->product_id);
     }
 }
