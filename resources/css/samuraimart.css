@@ -150,3 +150,8 @@ label {
   margin: 0 auto;
   /* 中央揃え */
 }
+
+.form-group {
+  margin-bottom: 1.5rem;
+  /* ここを調整して間隔を広げる */
+}
