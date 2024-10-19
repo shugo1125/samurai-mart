@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-2">
+<div class="row justify-content-center">
+    <div class="col-md-2">
         @component('components.sidebar', ['categories' => $categories, 'major_categories' => $major_categories])
         @endcomponent
     </div>
-    <div class="col-9">
+    <div class="col-md-9">
         <div class="container">
             @if ($category !== null)
             <a href="{{ route('products.index') }}">トップ</a> > <a href="#">{{ $major_category->name }}</a> > {{ $category->name }}
-            <h1>{{ $category->name }}の商品一覧{{$total_count}}件</h1>
+            <h1>{{ $category->name }}の商品一覧 {{$total_count}}件</h1>
             @elseif ($keyword !== null)
             <a href="{{ route('products.index') }}">トップ</a> > 商品一覧
-            <h1>"{{ $keyword }}"の検索結果{{$total_count}}件</h1>
+            <h1>"{{ $keyword }}"の検索結果 {{$total_count}}件</h1>
             @else
             <h1>商品一覧</h1>
             @endif
@@ -29,11 +29,7 @@
                 @endif
                 <select class="form-select form-select-sm" name="select_sort" onChange="this.form.submit();">
                     @foreach ($sorts as $key => $value)
-                    @if ($sorted === $value)
-                    <option value="{{ $value }}" selected>{{ $key }}</option>
-                    @else
-                    <option value="{{ $value }}">{{ $key }}</option>
-                    @endif
+                    <option value="{{ $value }}" {{ $sorted === $value ? 'selected' : '' }}>{{ $key }}</option>
                     @endforeach
                 </select>
             </form>
@@ -42,18 +38,14 @@
         <div class="container mt-4">
             <div class="row w-100">
                 @foreach($products as $product)
-                <div class="col-3">
+                <div class="col-md-3">
                     <a href="{{ route('products.show', $product) }}">
-                        @if ($product->image !== "")
-                        <img src="{{ asset($product->image) }}" class="img-thumbnail">
-                        @else
-                        <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail">
-                        @endif
+                        <img src="{{ $product->image ? asset($product->image) : asset('img/dummy.png') }}" class="img-thumbnail samuraimart-product-img">
                     </a>
                     <div class="row">
                         <div class="col-12">
                             <p class="samuraimart-product-label mt-2">
-                                {{$product->name}}<br>
+                                {{ $product->name }}<br>
                                 <span>
                                     @php
                                     $fullStars = floor($product->reviews()->avg('score') ?: 0);
@@ -73,7 +65,7 @@
                                                 {{ number_format($product->reviews()->avg('score') ?: 0, 1) }}
                                 </span>
                                 <br>
-                                <label>￥{{$product->price}}</label>
+                                <label>￥{{ number_format($product->price) }}</label>
                             </p>
                         </div>
                     </div>
