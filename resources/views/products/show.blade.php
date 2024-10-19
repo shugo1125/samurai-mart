@@ -118,6 +118,7 @@
                     <p class="h3">{{ $review->title }}</p>
                     <p class="h3">{{ $review->content }}</p>
                     <label>{{ $review->created_at }} {{ $review->user->name }}</label>
+
                 </div>
                 @endforeach
             </div>
