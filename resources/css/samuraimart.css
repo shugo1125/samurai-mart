@@ -125,3 +125,28 @@ label {
   margin-top: -10px;
   /* 上のマージンを調整して近づける */
 }
+
+.container {
+  max-width: 1200px;
+  /* コンテナの最大幅を設定 */
+  margin: 0 auto;
+  /* 中央揃え */
+}
+
+.row {
+  margin-left: 0;
+  /* 左のマージンをリセット */
+  margin-right: 0;
+  /* 右のマージンをリセット */
+}
+
+.samuraimart-product-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  /* 角を丸める */
+  display: block;
+  /* 画像をブロック要素として扱う */
+  margin: 0 auto;
+  /* 中央揃え */
+}
